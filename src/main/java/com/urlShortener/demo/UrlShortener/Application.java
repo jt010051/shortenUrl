@@ -1,5 +1,7 @@
 package com.urlShortener.demo.UrlShortener;
 
+import java.util.Random;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,8 +19,9 @@ public class Application {
 	}
 	@Bean
 	  public CommandLineRunner demo(UrlRepository repository) {
+
 	    return (args) -> {
-	      repository.save(new URL(1, "Youtube.com", "y.com"));
+	      repository.save(new URL((long) Math.random()*1000, "Youtube.com", "you"+"jt"+".com"));
 	    
 	    };
 	}

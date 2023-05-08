@@ -22,7 +22,6 @@ private final UrlRepository repository;
 	public URL create(URL url) {
 		log.info("Saving new url{}:", url.getShortUrl());
 		
-		url.setShortUrl(setShortURL());
 		return repository.save(url);
 	}
 
@@ -31,14 +30,7 @@ private final UrlRepository repository;
 		log.info("Fetching url by id{}", id);
 		return repository.findById(id).get();
 	}
-	private String setShortURL() {
-		String [] urlName= {"server1.png", "server2.jpeg",
-				"server3.jpeg", "server4.png"};		
-
-		return ServletUriComponentsBuilder.fromCurrentContextPath()
-				.path("server/image/"+
-						urlName[new Random().nextInt(4)]).toUriString();
-			}
+	
 	
 
 }
