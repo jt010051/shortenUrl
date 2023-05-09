@@ -43,13 +43,13 @@ public class UrlController {
 	 @PostMapping(value = "/save", consumes = "application/json", produces = "application/json")
 	 public URL saveUrl(@RequestBody URL url, HttpServletResponse response) {
 		
-		;
+		
 		 url.setID((long) Math.random()*1000);
 		 response.setHeader("Location", ServletUriComponentsBuilder.fromCurrentContextPath()
 			      .path("/findUrl/" + url.getLongUrl()).toUriString()) ;
 		 
-		
-			 String substringUrl = url.getLongUrl().substring(0, 3);
+	
+			 String substringUrl = url.getLongUrl().substring(8, 11);
 		
 			 url.setShortUrl(substringUrl +"jt");
 			 

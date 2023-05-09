@@ -1,4 +1,6 @@
 import axios from 'axios'
+import 'bootstrap/dist/css/bootstrap.css';
+import Button from 'react-bootstrap/Button';
 
 import React, {useEffect, useState} from 'react'
 const url="http://localhost:8080/url/allUrls";
@@ -9,6 +11,8 @@ const SearchBar = () => {
   const [links, setLinks] =useState([[]])
 
   const [longUrl, setLongUrl] = useState('')
+const  protocol= "https://";
+
   const fetchLinks = () =>{
 
     
@@ -23,10 +27,11 @@ const SearchBar = () => {
          
     },[])
 
-   
+   console.log(longUrl);
+
+
 
     const handleSubmit   = async(e)=>{
-    
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -43,7 +48,12 @@ const SearchBar = () => {
 
 return(
   <>
-  {links.map((link) => <li key = {link}>{link.shortUrl}</li>)}
+  {links.map((link) => 
+  <li>
+  <a href={link.longUrl}>{link.shortUrl}</a>
+  </li>
+  
+ )}
 <form onSubmit={handleSubmit}>
         <label htmlFor="header-search">
             <span className="visually-hidden">Search Links</span>
@@ -53,10 +63,11 @@ return(
             id="header-search"
             placeholder="Add New Link"
             name="s" 
-            onChange={(e) => setLongUrl(e.target.value)}
+            onChange={(e) => setLongUrl(protocol +e.target.value)}
             value={longUrl}
         />
-        <button type="submit">Submit</button>
+        <Button variant="primary" type='submit'>Submit</Button>{' '}
+
     </form>
 <div>
 

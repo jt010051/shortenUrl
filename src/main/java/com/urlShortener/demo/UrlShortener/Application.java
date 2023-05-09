@@ -21,7 +21,7 @@ public class Application {
 	  public CommandLineRunner demo(UrlRepository repository) {
 
 	    return (args) -> {
-	      repository.save(new URL((long) Math.random()*1000, "Youtube.com", "you"+"jt"+".com"));
+	      repository.save(new URL((long) Math.random()*1000, "https://www.youtube.com", "you"+"jt"+".com"));
 	    
 	    };
 	}
