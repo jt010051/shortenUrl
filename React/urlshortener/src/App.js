@@ -10,6 +10,7 @@ function App() {
             <SearchBar />
             
         </div>
+        
      </div>
 )}
 export default App

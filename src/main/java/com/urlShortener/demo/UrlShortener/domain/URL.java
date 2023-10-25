@@ -20,6 +20,6 @@ public class URL {
     @Id 
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long ID;
-	private String longUrl;
+	private String fullUrl;
 	private String shortUrl;
 }

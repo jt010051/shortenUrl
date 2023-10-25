@@ -46,10 +46,10 @@ public class UrlController {
 		
 		 url.setID((long) Math.random()*1000);
 		 response.setHeader("Location", ServletUriComponentsBuilder.fromCurrentContextPath()
-			      .path("/findUrl/" + url.getLongUrl()).toUriString()) ;
+			      .path("/findUrl/" + url.getFullUrl()).toUriString()) ;
 		 
 	
-			 String substringUrl = url.getLongUrl().substring(8, 11);
+			 String substringUrl = url.getFullUrl().substring(8, 11);
 		
 			 url.setShortUrl(substringUrl +"jt");
 			 
